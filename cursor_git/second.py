@@ -7,6 +7,7 @@ print("tsap")
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 =======
 
@@ -25,5 +26,12 @@ print("Cursor")
 >>>>>>> second
 =======
 print("Yura")
+=======
+
+
+
+
+print("first branch")
+>>>>>>> first
 
 >>>>>>> first
