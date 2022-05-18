@@ -1,5 +1,6 @@
 
 
+<<<<<<< HEAD
 print("hello")
 print("tsap")
 
@@ -7,6 +8,12 @@ print("tsap")
 <<<<<<< HEAD
 <<<<<<< HEAD
 =======
+=======
+
+print("second BRABCH")
+
+
+>>>>>>> second
 
 print("Cursor")
 
