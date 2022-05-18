@@ -11,7 +11,12 @@ print("hello")
 print("Cursor")
 
 
+<<<<<<< HEAD
 >>>>>>> first
 =======
 
 >>>>>>> second
+=======
+print("Yura")
+
+>>>>>>> first
