@@ -2,49 +2,62 @@ from abc import abstractclassmethod, ABC
 # =================== 1 =============================
 class Animal:
 
-    def __init__(self, name):
+    def __init__(self, name, typeOfEat, hoursOfsleep):
         self.name = name
+        self.typeOfEat = typeOfEat
+        self.hoursOfsleep = hoursOfsleep
     def get_name_of_Animal(self):
         print(self.name)
+    def eat(self):
+        print("Type of food -> ", self.typeOfEat)
+    def sleep(self):
+        print("Amount hours of sleep -> ",self.hoursOfsleep)
+
 class Dog(Animal):
-    def __init__(self, name):
-        super().__init__(name)
+    def __init__(self, name, typeOfEat, hoursOfsleep):
+        super().__init__(name, typeOfEat, hoursOfsleep)
     def execution_of_the_command_voice(self):
         print('Gav-Gav')
     def execution_of_the_command_glory_Ukraine(self):
         print('Gav-Gav-Gav-Gav-Gav-Gav-Gav-Gav')
 
-brovchik = Dog("Brovchik")
+brovchik = Dog("Brovchik", "bones", "14")
 brovchik.execution_of_the_command_voice()
 brovchik.execution_of_the_command_glory_Ukraine()
+brovchik.eat()
+brovchik.sleep()
 print(issubclass(Dog, Animal))
 class Cat(Animal):
-    def __init__(self, name):
-        super().__init__(name)
+    def __init__(self, name, typeOfEat, hoursOfsleep):
+        super().__init__(name, typeOfEat, hoursOfsleep)
 
     def voice_to_eat(self):
         print('Meeeaaaaav')
     def voice_to_go_out(self):
         print('Meeeaaaaav-Meeeaaaaav-Meeeaaaaav')
 
-mrCat = Cat("MrCat")
+mrCat = Cat("MrCat", "fish", 15)
 mrCat.voice_to_eat()
 mrCat.voice_to_go_out()
+mrCat.eat()
+mrCat.sleep()
 print(issubclass(Cat, Animal))
 
 class Frog(Animal):
-    def __init__(self, name):
-        super().__init__(name)
+    def __init__(self, name, typeOfEat, hoursOfsleep):
+        super().__init__(name, typeOfEat, hoursOfsleep)
 
     def voice_of_frog(self):
         print('kva-kva')
-mrFrog = Frog("MrFrog")
+mrFrog = Frog("MrFrog", "insects", 7)
 mrFrog.voice_of_frog()
+mrFrog.eat()
+mrFrog.sleep()
 print(issubclass(Frog, Animal))
 
 class Dinosaur(Animal):
-    def __init__(self, name):
-        super().__init__(name)
+    def __init__(self, name, typeOfEat, hoursOfsleep):
+        super().__init__(name, typeOfEat, hoursOfsleep)
 
     def danger(self):
         print('hrhrhr')
@@ -52,19 +65,21 @@ class Dinosaur(Animal):
     def extremely_danger(self):
         print('hrhrhr-hrhrhr-hrhrhr')
 
-rex = Dinosaur("Rex")
+rex = Dinosaur("Rex", "human", 10)
 rex.danger()
 rex.extremely_danger()
+rex.sleep()
+rex.eat()
 print(issubclass(Dinosaur, Animal))
 
 class Duck(Animal):
-    def __init__(self, name):
-        super().__init__(name)
+    def __init__(self, name, typeOfEat, hoursOfsleep):
+        super().__init__(name, typeOfEat, hoursOfsleep)
 
     def voice_of_duck(self):
         print('krya-krya')
 
-msDuck = Duck("MsDuck")
+msDuck = Duck("MsDuck", "bones", 9)
 msDuck.voice_of_duck()
 print(issubclass(Duck, Animal))
 
@@ -84,8 +99,8 @@ class Human():
               f"\ninsurance_id -> {self.insurance_id}")
 
 class Centaur(Animal, Human):
-    def __init__(self, name, last_name, age, passport_id, insurance_id, country):
-        Animal.__init__(self, name)
+    def __init__(self, name, hoursOfsleep, typeOfEat, last_name, age, passport_id, insurance_id, country):
+        Animal.__init__(self, name, hoursOfsleep, typeOfEat)
         Human.__init__(self, last_name, age, passport_id, insurance_id)
         self.coutry = country
 
@@ -94,10 +109,12 @@ class Centaur(Animal, Human):
               f"\npassport_id -> {self.passport_id} \ninsurance_id -> {self.insurance_id} "
               f"\ncountry -> {self.coutry}")
 
-mrCentaur = Centaur("Mr Centaur", "Boss", 45, 123456789, 5589634427, "Palestyna")
+mrCentaur = Centaur("Mr Centaur", "all food", 12, "Boss", 45, 123456789, 5589634427, "Palestyna")
 mrCentaur.get_all_nfo_about_Centaur()
 mrCentaur.get_name_of_Animal()
 mrCentaur.get_info_about_Human()
+mrCentaur.sleep()
+mrCentaur.eat()
 # ==========================================================================================================
 
 # =========================================== 2 ============================================================
