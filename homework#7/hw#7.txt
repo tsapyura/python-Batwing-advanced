@@ -12,7 +12,7 @@ sudo mysql -u root --password=1 school < school66.sql
 sudo mysql -u root -p
 USE school;
 INSERT INTO students (first_name, last_name) VALUES ("Yurii", "Tsap");
-CREATE TABLE level (id INT PRIMARY KEY AUTO_INCREMENT, level_number INT NOT NULL DEFAULT 1, student_id);
+CREATE TABLE level (id INT PRIMARY KEY AUTO_INCREMENT, level_number INT NOT NULL DEFAULT 1, student_id INT NOT NULL);
 INSERT INTO level (level_number, student_id) VALUES (4, 1), (5,2), (6, 3), (7,4), (8,5);
 
 SELECT s.first_name, s.last_name, l.level_number FROM level l INNER JOIN students s ON l.student_id = s.id; 
