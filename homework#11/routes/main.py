@@ -4,9 +4,23 @@ from flask import render_template, request, redirect
 
 @app.route("/")
 def main():
-    users = get_users()
-    return render_template("index.html", users = users)
+    search_query = request.args.get("search_query")
+    if search_query:
 
+        users = get_users()
+
+        searched_users = []
+        for user in users:
+            if search_query == user["first_name"] or search_query == user["last_name"] or search_query == user[
+                "work_area"]:
+                searched_users.append(user)
+        if len(searched_users) > 0: 
+            return render_template("search_item.html", users=searched_users)
+        else:
+            return render_template("search_item.html", content="Nothing was found for your query")
+    else:
+        users = get_users()
+        return render_template("index.html", users=users)
 @app.route("/user-add")
 def user_add():
     return render_template("user-add.html")
@@ -56,19 +70,19 @@ def delete(id):
     return redirect("/")
 
 
-@app.route("/search", methods=["GET"])
-def search():
-    first_name = request.args.get("first_name")
-    last_name = request.args.get("last_name")
-    work_area = request.args.get("work_area")
-
-    users = get_users()
-    search_users = []
-    for user in users:
-        if id == user["id"] or first_name == user["first_name"] or last_name == user["last_name"] or work_area == user["work_area"]:
-            search_users.append(user)
-    if len(search_users) > 0:
-        return render_template("search_item.html", users=search_users)
-    else:
-        return "Not found user"
-
+# @app.route("/search", methods=["GET"])
+# def search():
+#     first_name = request.args.get("first_name")
+#     last_name = request.args.get("last_name")
+#     work_area = request.args.get("work_area")
+#
+#     users = get_users()
+#     search_users = []
+#     for user in users:
+#         if id == user["id"] or first_name == user["first_name"] or last_name == user["last_name"] or work_area == user["work_area"]:
+#             search_users.append(user)
+#     if len(search_users) > 0:
+#         return render_template("search_item.html", users=search_users)
+#     else:
+#         return "Not found user"
+#
