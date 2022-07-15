@@ -28,9 +28,9 @@ print(rez.groups())
 
 # ================================== 3 ======================================
 
-pattern = r"[0]"
-text = "216.008.094.196"
-rez = re.sub(pattern=pattern, repl="", string=text)
+pattern = r'\.[0]*'
+text = "120.008.009.196"
+rez = re.sub(pattern=pattern, repl=".", string=text)
 
 if rez:
     print("match received")
