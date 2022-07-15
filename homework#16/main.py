@@ -33,7 +33,7 @@ text = "120.008.009.196"
 rez = re.sub(pattern=pattern, repl=".", string=text)
 
 if rez:
-    print("match received")
+    print("match received!")
 else:
     print("no matches found")
 
