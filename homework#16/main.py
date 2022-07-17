@@ -7,7 +7,7 @@ text = "Hello, my phone number is 251-6543-2343."
 rez = re.findall(pattern=pattern, string=text)
 
 if rez:
-    print("match received")
+    print("match received!")
 else:
     print("no matches found")
 
