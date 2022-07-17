@@ -42,7 +42,7 @@ def create():
     schema = BookSchema()
     try:
         book_data = schema.load(data)
-        new_book = Book(title=book_data['title'])
+        new_book = Book(name_of_book=book_data['name_of_book'])
         db.session.add(new_book)
         db.session.commit()
 

@@ -8,5 +8,5 @@ from marshmallow.validate import Length
 
 
 class AuthorSchema(Schema):
-    id = fields.Integer(required=True, load_only=True)
+    id = fields.Integer(required=True,  dump_only=True)
     name_lastname = fields.String(required=True, validate=Length(max=255))
