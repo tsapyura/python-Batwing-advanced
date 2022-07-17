@@ -62,7 +62,7 @@ def update(id_):
         book_data = schema.load(data)
         book = Book.query.filter_by(id=id_).first()
         if not book is None:  # add validation
-            book.title = book_data['title']
+            book.name_of_book = book_data['name_of_book']
             db.session.add(book)
             db.session.commit()
 
