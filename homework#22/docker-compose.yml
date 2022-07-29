@@ -1,0 +1,31 @@
+version: '3.8'
+
+services:
+  web:
+    build: .
+    command: python main.py
+    volumes:
+      - .:/app
+    ports:
+      - "5000:5000"
+    depends_on:
+      - db
+  db:
+    image: postgres:13-alpine
+    volumes:
+      - postgres_data:/var/lib/postgresql/data/
+    environment:
+      - POSTGRES_USER=zdybanka
+      - POSTGRES_PASSWORD=zdybanka
+      - POSTGRES_DB_NAME=zdybanka
+  pgweb:
+    image: sosedoff/pgweb
+    ports:
+      - "8081:8081"
+    environment:
+      - DATABASE_URL=postgresql://zdybanka:zdybanka@db:5432/zdybanka?sslmode=disable
+    depends_on:
+      - db
+
+volumes:
+  postgres_data:
